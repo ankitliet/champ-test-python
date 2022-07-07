@@ -1,0 +1,25 @@
+version: "3.4"
+
+x-logging: &default-logging
+  driver: loki
+  options:
+    loki-url: 'http://loki:3100/api/prom/push'
+    loki-pipeline-stages: |
+      - multiline:
+          firstline: '^\d{4}-\d{2}-\d{2} \d{1,2}:\d{2}:\d{2}'
+          max_wait_time: 3s
+      - regex:
+          expression: '^(?P<time>\d{4}-\d{2}-\d{2} \d{1,2}:\d{2}:\d{2},d{3}) (?P<message>(?s:.*))$$'
+services:
+  champ-web-server:
+    image: ${REGISTRY:-ganeshpote1988}/champ:champ-web-server-${TAG:-latest}
+    ports:
+      - "8082:8082"
+    environment:
+      #- OTLP_ENABLE=True
+      #- OTLP_GRPC_ENDPOINT=http://tempo:14250
+      - APP_NAME=CHAMP-WebServer
+    build:
+      context: .
+      dockerfile: fastapi_webserver/web.jenkins.Dockerfile
+    logging: *default-logging

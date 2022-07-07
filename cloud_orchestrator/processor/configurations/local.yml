@@ -1,0 +1,24 @@
+Engine:
+    cache_maxsize: 10
+    handlers:
+        Mark10: 'core.handler.mark10.mark10.Mark10'
+        Mark20: 'core.handler.mark10.mark20.Mark20'
+            
+ThreadExecutorResource:
+    max_workers: 10
+    thread_name_prefix: ''
+    initializer: 
+    initargs: []
+    grpc_port: 9090
+    
+DatabaseResource:
+    url: 'postgresql://postgres:postgres@10.166.160.7/hcmp'
+    schema: 'hcmp'
+    
+rabbit_listner:
+    server: '10.160.128.113'
+    port: 31009
+    virtual_host: '/'
+    user: 'SVcTkQ8aAhjZyeSWxvgmQ_M1BetPzWuC'
+    password: 'rcaZd771pXHpYpmcSu4ls1WxSJzINydj'
+    exchange: 'orchestrator'

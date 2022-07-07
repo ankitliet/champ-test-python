@@ -1,0 +1,3 @@
+db:
+  url: 'postgresql://si_hcmp_teraprod:si_hcmp_teraprod@5432@/HCMP_TERAFORM_PROD?host=10.166.16.160&port=5432'
+  schema: 'hcmp'

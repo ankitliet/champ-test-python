@@ -1,0 +1,46 @@
+champ:
+  source: champ
+
+jenkins:
+  host: 'http://10.161.10.198:8080'
+  username: 'admin'
+  password: 'admin@123'
+
+db:
+  url: 'postgresql://hcmp:admin@123@3.109.238.136/hcmp'
+  schema: 'hcmp'
+  
+terraform_db:
+  url: 'postgresql://hcmp:admin@123@3.109.238.136/hcmp'
+  schema: 'terraform_remote_state'
+
+server:
+  ip: '0.0.0.0'
+  port: 8082
+  name: 'Orchestrator'
+  backend_cors_orgins: ['*']
+  
+rmq:
+  server: '3.109.238.136'
+  port: 5672
+  virtual_host: '/'
+  user: 'admin'
+  password: 'Admin@123'
+  queue: 'orchestrator-dev'
+  exchange: 'orchestrator'
+  
+  
+password-encryption:
+  key: 'hN5w8cHOcE5iazBkZtLSCcUkt-30ftOX6iDdjyr3H9c='    
+
+ldap:
+  ldap_server: 'ldap://adldap.in.xxx.com:389'
+  base_dn: 'DC=in,DC=xxx,DC=com'
+  search_filter: '(&(objectclass=user)(sAMAccountName={}))'
+  
+response_list:
+  exclude: 'random_id,random_uuid'
+
+teams:
+  portal_url: "http://13.126.60.149:4200/orchestration/transactions/{}"
+  team_webhook_url: "https://htcinc0.webhook.office.com/webhookb2/ccd386c8-ca2f-4bc7-99ec-b87859bd4c05@249afc7c-06ae-4bc9-b93e-1232b68ce6fe/IncomingWebhook/7a76dd4dd2df4a7bbd08e44bd7c87f14/2ccefe53-9c19-44ee-8b2c-ee5a887bf440"

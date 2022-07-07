@@ -1,0 +1,1900 @@
+{
+	"info": {
+		"_postman_id": "57b2d8f2-5661-4a87-bbc1-28da3e20bd85",
+		"name": "Cloud Orchestrator Copy 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Azure",
+			"item": [
+				{
+					"name": "start_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"start_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\":[\"myvm10111\"],\r\n        \"resource_group_name\":\"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_bastion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_bastion\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"azure_bastion_service_name\": \"bastiondemo\",\r\n\t\t\"public_ip_allocation_method\": \"Static\",\r\n\t\t\"public_ip_sku\": \"Standard\",\r\n\t\t\"domain_name_label\": null,\r\n\t\t\"create_subnet\": false,\r\n\t\t\"virtual_network_name\": \"CMP-vnet\",\r\n\t\t\"azure_bastion_subnet_address_prefix\": [\"10.0.5.0/29\"],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diskencrypt",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"diskencrypt\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"vm_name\": \"anunayvm2-openlogic-7.2-latest-0\",\r\n\t\t\"vm_os_type\": \"linux\",\r\n\t\t\"key_vault_name\": \"kv-postmandemo\",\r\n\t\t\"secret_key\": \"testkey\",\r\n\t\t\"encryption_algorithm\": \"RSA-OAEP\",\r\n\t\t\"volume_type\": \"All\",\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_disk_snapshot",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_disk_snapshot\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"managed_disk_names\":[\"CMPPOC_DataDisk_0\", \"CMPDISK\"],\r\n\t\t\"snapshot_version\": \"1.0\",\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_azure_vault",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_azure_vault\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"key_vault_name\": \"hcmpdemo\",\r\n\t\t\"key_vault_sku_pricing_tier\": \"standard\",\r\n\t\t\"soft_delete_retention_days\": 7,\r\n\t\t\"access_policies\": [{\r\n\t\t\t\"azure_ad_user_principal_names\": [\"ganesh.pote@gmail.com\"],\r\n\t\t\t\"key_permissions\": [\"create\", \"delete\", \"get\", \"backup\", \"decrypt\", \"encrypt\", \"import\", \"list\", \"purge\", \"recover\", \"restore\", \"sign\", \"update\", \"verify\"],\r\n\t\t\t\"secret_permissions\": [\"backup\", \"delete\", \"get\", \"list\", \"purge\", \"recover\", \"restore\", \"set\"],\r\n\t\t\t\"certificate_permissions\": [\"backup\", \"create\", \"delete\", \"deleteissuers\", \"get\", \"getissuers\", \"import\", \"list\", \"listissuers\", \"managecontacts\", \"manageissuers\", \"purge\", \"recover\", \"restore\", \"setissuers\", \"update\"],\r\n\t\t\t\"storage_permissions\": [\"backup\", \"delete\", \"deletesas\", \"get\", \"getsas\", \"list\", \"listsas\", \"purge\", \"recover\", \"regeneratekey\", \"restore\", \"set\", \"setsas\", \"update\"]\r\n\t\t}],\r\n\t\t\"network_acls\": [{\r\n\t\t\t\"bypass\": \"AzureServices\",\r\n\t\t\t\"default_action\": \"Allow\",\r\n\t\t\t\"ip_rules\": [],\r\n\t\t\t\"virtual_network_subnet_ids\": []\r\n\t\t}],\r\n\t\t\"secrets\": {},\r\n\t\t\"log_analytics_workspace_name\": \"AzureLaaS\",\r\n\t\t\"azure_monitor_logs_retention_in_days\": 30,\r\n\t\t\"storage_account_name\": \"bootdiag02ba8f714ff8\",\r\n\t\t\"enabled_for_disk_encryption\": true,\r\n\t\t\"enabled_for_deployment\": true,\r\n\t\t\"enabled_for_template_deployment\": true,\r\n\t\t\"enable_rbac_authorization\": false,\r\n\t\t\"enable_purge_protection\": true,\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_azure_vault_secrete",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_azure_vault_secrete\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"key_vault_name\": \"kv-postmandemo\",\r\n\t\t\"secrets\": {\r\n\t\t\t\"test11\": \"Hello, world!\",\r\n\t\t\t\"test12\": \"hello world2\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_azure_vault_key",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_azure_vault_key\",\r\n\t\"references\": {\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    }\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"key_vault_name\": \"kv-postmandemo\",\r\n\t\t\"key_name\": \"postmandemo11\",\r\n\t\t\"key_type\": \"RSA\",\r\n\t\t\"key_size\": 2048,\r\n\t\t\"curve\": \"P-256\",\r\n\t\t\"key_opts\": [\"decrypt\", \"encrypt\", \"sign\", \"unwrapKey\", \"verify\", \"wrapKey\"],\r\n\t\t\"not_before_date\": null,\r\n\t\t\"expiration_date\": null,\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stop_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"stop_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\":[\"myvm10111\"],\r\n        \"resource_group_name\":\"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_publicip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"create_publicip\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    },\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"nb_public_ip\" : 3,\r\n\t\t\"display_name\" : \"cloudorchdemo\",\r\n\t\t\"allocation_method\": \"Static\",\r\n\t\t\"domain_name_label\": \"\",\r\n\t\t\"sku\" : \"\",\r\n\t\t\"sku_tier\" : \"\",\r\n\t\t\"availability_zone\": \"\",\r\n\t\t\"ip_version\": \"IPv4\",\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"ganesh.pote@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restart_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"restart_vm\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\": [\"myvm10\"],\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_vm_size",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_id\":\"3dfcef32fdfc4f108acdae82d1483c49\",\r\n\t\"source\": \"HCMP\",\r\n    \"blueprint_name\": \"change_vm_size\",\r\n    \"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\":[\"ganesh090121-openlogic-7.2-latest-0\"],\r\n        \"vm_size\": \"Standard_E8-2as_v4\",\r\n        \"resource_group_name\":\"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n    \"blueprint_name\": \"delete_vm\",\r\n    \"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\":[\"ganeshdd-0\"],\r\n        \"resource_group_name\":\"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n    \"blueprint_name\": \"add_disk\",\r\n    \"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    },\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"vm_name\":[\"gane-swati-11-0\"],   \r\n        \"location\": \"centralindia\",\r\n        \"data_disk_info\": [{\r\n\t\t\t\t\"redundancy\": \"LRS\",\r\n\t\t\t\t\"sku\": \"Standard_LRS\",\r\n\t\t\t\t\"tier\": \"P1\",\r\n\t\t\t\t\"disk_size_GB\": \"4\"\r\n\t\t\t}\r\n\t\t],\r\n        \"resource_group_name\":\"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_disk_size",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"change_disk_size\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n        \"vm_name\": [\"ganeshdemo5-openlogic-7.2-latest-0\"],\r\n\t\t\"data_disk_info\": {\r\n\t\t\t\"ganeshdemo5-openlogic-7.2-latest-0\": [{\r\n\t\t\t\t\"disk_name\": \"ganeshdemo5-openlogic-7.2-latest-0_data_disk_0_50615\",\r\n\t\t\t\t\"disk_size_GB\": \"35\"\r\n\t\t\t}]\r\n\t\t},\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detach_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"detach_disk\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n        \"vm_name\": [\"ganeshdemo-openlogic-7.2-latest-0\"],\r\n\t\t\"data_disk_info\": {\r\n\t\t\t\"ganeshdemo-openlogic-7.2-latest-0\": [{\r\n\t\t\t\t\"disk_name\": \"ganeshdemo-openlogic-7.2-latest-0_data_disk_1_12719\"\r\n\t\t\t}]\r\n\t\t},\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dependency-agent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"dependency-agent\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"vm_name\": [\"ganesh-kafkatest\"],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-analytics-agent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"log-analytics-agent\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"vm_name\": [\"dhruvvm16-openlogic-7.2-latest-0\"],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_storage_table",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_storage_table\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"tables\": [\"table1\", \"table2\", \"table3\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_storage_container",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_storage_container\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"containers_list\": [{\r\n\t\t\t\"name\": \"mystore250\",\r\n\t\t\t\"access_type\": \"private\"\r\n\t\t}, {\r\n\t\t\t\"name\": \"blobstore251\",\r\n\t\t\t\"access_type\": \"private\"\r\n\t\t}, {\r\n\t\t\t\"name\": \"containter252\",\r\n\t\t\t\"access_type\": \"private\"\r\n\t\t}],\r\n\t\t\"lifecycles\": [{\r\n\t\t\t\"prefix_match\": [\"mystore250/folder_path\"],\r\n\t\t\t\"tier_to_cool_after_days\": 0,\r\n\t\t\t\"tier_to_archive_after_days\": 50,\r\n\t\t\t\"delete_after_days\": 100,\r\n\t\t\t\"snapshot_delete_after_days\": 30\r\n\t\t}, {\r\n\t\t\t\"prefix_match\": [\"blobstore251/another_path\"],\r\n\t\t\t\"tier_to_cool_after_days\": 0,\r\n\t\t\t\"tier_to_archive_after_days\": 30,\r\n\t\t\t\"delete_after_days\": 75,\r\n\t\t\t\"snapshot_delete_after_days\": 30\r\n\t\t}],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_storage_container",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"delete_storage_container\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"containers_list\": [\"mystore250\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_storage_fileshare",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_storage_fileshare\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"file_shares\": [{\r\n\t\t\t\t\"name\": \"smbfileshare1\",\r\n\t\t\t\t\"quota\": 50\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"smbfileshare2\",\r\n\t\t\t\t\"quota\": 50\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_storage_fileshare",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"delete_storage_fileshare\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"file_shares\": [\"smbfileshare1\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_storage_queues",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_storage_queues\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"queues\": [\"queue1\", \"queue2\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_storage_queue",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"delete_storage_queue\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"bootdiag51fe8bf9ead8\",\r\n\t\t\"queues\": [\"queue2\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_storage_account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_storage_account\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_storage_account\": true,\r\n\t\t\"storage_account_name\": \"ganeshdemo\",\r\n\t\t\"account_kind\": \"StorageV2\",\r\n\t\t\"skuname\": \"Standard_RAGRS\",\r\n\t\t\"access_tier\": \"Hot\",\r\n\t\t\"min_tls_version\": \"TLS1_2\",\r\n\t\t\"blob_soft_delete_retention_days\": 7,\r\n\t\t\"container_soft_delete_retention_days\": 7,\r\n\t\t\"enable_versioning\": true,\r\n\t\t\"last_access_time_enabled\": false,\r\n\t\t\"change_feed_enabled\": false,\r\n\t\t\"enable_advanced_threat_protection\": true,\r\n\t\t\"network_rules\": {\r\n\t\t\t\"bypass\": [],\r\n\t\t\t\"default_action\": \"Allow\",\r\n\t\t\t\"ip_rules\": [],\r\n\t\t\t\"subnet_ids\": []\r\n\t\t},\r\n\t\t\"identity_ids\": null,\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_storage_account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"delete_storage_account\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"storage_account_name\": [\"staganeshdemom8qlkf\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"delete_disk\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"data_disk_info\": [\"datadisk-abcd2-0\"],\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"ved\",\r\n\t\"modified_by\": \"ved\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_firewall_inbound_rules",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"create_firewall_rule\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_secgrp\": false,\r\n\t\t\"secgrp_name\": \"ganesh-security_group\",\r\n\t\t\"secrule_pools\": [{\r\n\t\t\t\t\"name\": \"azure-in-secrule1\",\r\n\t\t\t\t\"priority\": \"1000\",\r\n\t\t\t\t\"direction\": \"Inbound\",\r\n\t\t\t\t\"access\": \"Allow\",\r\n\t\t\t\t\"protocol\": \"Tcp\",\r\n\t\t\t\t\"source_port_range\": \"443\",\r\n\t\t\t\t\"destination_port_range\": \"*\",\r\n\t\t\t\t\"source_address_prefix\": \"*\",\r\n\t\t\t\t\"destination_address_prefix\": \"*\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"azure-in-secrule2\",\r\n\t\t\t\t\"priority\": \"1001\",\r\n\t\t\t\t\"direction\": \"Inbound\",\r\n\t\t\t\t\"access\": \"Allow\",\r\n\t\t\t\t\"protocol\": \"Tcp\",\r\n\t\t\t\t\"source_port_range\": \"22\",\r\n\t\t\t\t\"destination_port_range\": \"*\",\r\n\t\t\t\t\"source_address_prefix\": \"*\",\r\n\t\t\t\t\"destination_address_prefix\": \"*\"\r\n\t\t\t}, {\r\n\t\t\t\t\"name\": \"azure-in-secrule3\",\r\n\t\t\t\t\"priority\": \"1002\",\r\n\t\t\t\t\"direction\": \"Inbound\",\r\n\t\t\t\t\"access\": \"Allow\",\r\n\t\t\t\t\"protocol\": \"Tcp\",\r\n\t\t\t\t\"source_port_range\": \"80\",\r\n\t\t\t\t\"destination_port_range\": \"*\",\r\n\t\t\t\t\"source_address_prefix\": \"*\",\r\n\t\t\t\t\"destination_address_prefix\": \"*\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"omkar.jadhav@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_firewall_outbound_rules",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"create_firewall_rule\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"create_secgrp\": true,\r\n\t\t\"secgrp_name\": \"azure-demo-secgrp\",\r\n\t\t\"secrule_pools\": [{\r\n\t\t\t\t\"name\": \"azure-out-secrule1\",\r\n\t\t\t\t\"priority\": \"1000\",\r\n\t\t\t\t\"direction\": \"Outbound\",\r\n\t\t\t\t\"access\": \"Allow\",\r\n\t\t\t\t\"protocol\": \"Tcp\",\r\n\t\t\t\t\"source_port_range\": \"*\",\r\n\t\t\t\t\"destination_port_range\": \"*\",\r\n\t\t\t\t\"source_address_prefix\": \"*\",\r\n\t\t\t\t\"destination_address_prefix\": \"*\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"azure-out-secrule2\",\r\n\t\t\t\t\"priority\": \"1001\",\r\n\t\t\t\t\"direction\": \"Outbound\",\r\n\t\t\t\t\"access\": \"Allow\",\r\n\t\t\t\t\"protocol\": \"Tcp\",\r\n\t\t\t\t\"source_port_range\": \"*\",\r\n\t\t\t\t\"destination_port_range\": \"*\",\r\n\t\t\t\t\"source_address_prefix\": \"*\",\r\n\t\t\t\t\"destination_address_prefix\": \"*\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"omkar.jadhav@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VM - Linux",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"randomNumber\", _.random(1, 100))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"os-provisioning\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    },\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"vnet_subnet_id\": \"/subscriptions/e24e76dc-df5a-4add-b57b-6aa3f0eae0ee/resourceGroups/CMP/providers/Microsoft.Network/virtualNetworks/CMP-vnet/subnets/default\",\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"marketplace_blueprint\": false,\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"nb_instances\": \"2\",\r\n\t\t\"vm_size\": \"Standard_D8s_v4\",\r\n\t\t\"nb_public_ip\": 0,\r\n\t\t\"vm_hostname\": \"ganeshdhruv{{randomNumber}}\",\r\n\t\t\"admin_username\": \"azureuser\",\r\n\t\t\"__e__admin_password\": \"4S3dZAvzPQaf5gdqy0kSXw==\",\r\n\t\t\"vm_os_publisher\": \"bitnami\",\r\n\t\t\"vm_os_offer\": \"mongodb\",  \r\n\t\t\"vm_os_sku\": \"default\",\r\n\t\t\"vm_os_version\": \"latest\",\r\n\t\t\"os_sa_type\": \"StandardSSD_LRS\",\r\n\t\t\"boot_diagnostics\": true,\r\n        \"inbound_port_ranges\":[\"22\", \"443\", \"80\"],\r\n\t\t\"delete_os_disk_on_termination\": true,\r\n\t\t\"delete_data_disks_on_termination\": true,\r\n\t\t\"data_disk_info\": [\t{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t},{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t},{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t}],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n        \"custom_image_name\":\"prashant-image\",\r\n        \"attach_custom_image\":true,\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VM - Linux Copy 2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"randomNumber\", _.random(1, 100))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "awsv4"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"os-provisioning\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n        \"task_instance_id\": 123456,\r\n        \"cust_sub_id\": 325,\r\n        \"task_request_ref_id\": \"7890\"\r\n    },\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"vnet_subnet_id\": \"/subscriptions/e24e76dc-df5a-4add-b57b-6aa3f0eae0ee/resourceGroups/CMP/providers/Microsoft.Network/virtualNetworks/CMP-vnet/subnets/default\",\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"marketplace_blueprint\": true,\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"SouthIndia-RG\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"nb_instances\": \"1\",\r\n\t\t\"vm_size\": \"Standard_D8s_v4\",\r\n\t\t\"nb_public_ip\": 0,\r\n\t\t\"vm_hostname\": \"ganeshdhruv{{randomNumber}}\",\r\n\t\t\"admin_username\": \"azureuser\",\r\n\t\t\"__e__admin_password\": \"4S3dZAvzPQaf5gdqy0kSXw==\",\r\n\t\t\"vm_os_publisher\": \"bitnami\",\r\n\t\t\"vm_os_offer\": \"mongodb\",  \r\n\t\t\"vm_os_sku\": \"default\",\r\n\t\t\"vm_os_version\": \"latest\",\r\n\t\t\"os_sa_type\": \"StandardSSD_LRS\",\r\n\t\t\"boot_diagnostics\": true,\r\n        \"inbound_port_ranges\":[\"22\", \"443\", \"80\"],\r\n\t\t\"delete_os_disk_on_termination\": true,\r\n\t\t\"delete_data_disks_on_termination\": true,\r\n\t\t\"data_disk_info\": [\t{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t},{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t},{\r\n\t\t\t\t\"sku\": \"StandardSSD_LRS\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t}],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VM - Linux Copy",
+					"request": {
+						"auth": {
+							"type": "awsv4"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"os_provisioning\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"task_id\": \"56cf4812455c486a9c362536f7e87828\",\r\n\t\"parameters\": {\r\n\t\t\"vnet_subnet_id\": \"/subscriptions/e24e76dc-df5a-4add-b57b-6aa3f0eae0ee/resourceGroups/CMP/providers/Microsoft.Network/virtualNetworks/CMP-vnet/subnets/default\",\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"marketplace_blueprint\": false,\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"nb_instances\": \"1\",\r\n\t\t\"vm_size\": \"Standard_D2as_v4\",\r\n\t\t\"nb_public_ip\": 0,\r\n\t\t\"vm_hostname\": \"ganesh-test\",\r\n\t\t\"admin_username\": \"azureuser\",\r\n\t\t\"admin_password\": \"ComplxP@ssw0rd!\",\r\n\t\t\"vm_os_publisher\": \"OpenLogic\",\r\n\t\t\"vm_os_offer\": \"CentOS\",\r\n\t\t\"vm_os_sku\": \"7.2\",\r\n\t\t\"vm_os_version\": \"latest\",\r\n\t\t\"os_sa_type\": \"Premium_LRS\",\r\n\t\t\"boot_diagnostics\": true,\r\n\t\t\"inbound_port_ranges\": [\"22\"],\r\n\t\t\"delete_os_disk_on_termination\": true,\r\n\t\t\"delete_data_disks_on_termination\": true,\r\n\t\t\"data_disk_info\": [{\r\n\t\t\t\t\"redundancy\": \"LRS\",\r\n\t\t\t\t\"sku\": \"Premium_LRS\",\r\n\t\t\t\t\"tier\": \"P1\",\r\n\t\t\t\t\"disk_size_GB\": \"4\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"redundancy\": \"LRS\",\r\n\t\t\t\t\"sku\": \"Premium_LRS\",\r\n\t\t\t\t\"tier\": \"P2\",\r\n\t\t\t\t\"disk_size_GB\": \"10\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"boot_custom_image_name\": true,\r\n\t\t\"custom_image_name\": \"p-image-azure-21july\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create VM - Linux (no disk)",
+					"request": {
+						"auth": {
+							"type": "awsv4"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"os-provisioning\",\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"parameters\": {\r\n\t\t\"vnet_subnet_id\": \"/subscriptions/e24e76dc-df5a-4add-b57b-6aa3f0eae0ee/resourceGroups/CMP/providers/Microsoft.Network/virtualNetworks/CMP-vnet/subnets/default\",\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"marketplace_blueprint\": false,\r\n\t\t\"is_windows_image\": false,\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"nb_instances\": \"1\",\r\n\t\t\"vm_size\": \"Standard_D2as_v4\",\r\n\t\t\"nb_public_ip\": 0,\r\n\t\t\"vm_hostname\": \"ganeshtest\",\r\n\t\t\"admin_username\": \"azureuser\",\r\n\t\t\"admin_password\": \"ComplxP@ssw0rd!\",\r\n\t\t\"vm_os_publisher\": \"OpenLogic\",\r\n\t\t\"vm_os_offer\": \"CentOS\",\r\n\t\t\"vm_os_sku\": \"7.2\",\r\n\t\t\"vm_os_version\": \"latest\",\r\n\t\t\"os_sa_type\": \"Premium_LRS\",\r\n\t\t\"boot_diagnostics\": true,\r\n\t\t\"inbound_port_ranges\": [\"22\", \"8080\", \"443\"],\r\n\t\t\"delete_os_disk_on_termination\": true,\r\n\t\t\"delete_data_disks_on_termination\": true,\r\n\t\t\"data_disk_info\": [],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"boot_custom_image_name\": false,\r\n\t\t\"custom_image_name\": \"p-image-azure-21july1\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_mssql",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_mssql\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"ref_id\": \"b0310082-7a5f-4428-b328-50b82b263a1c\",\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"cloud_provider\": \"azure\",\r\n\t\t\"blueprint_name\": \"mssql\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"create_resource_group\": false,\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"sqlserver_name\": \"sqldbserver21\",\r\n\t\t\"database_name\": \"demomssqldb\",\r\n\t\t\"sql_database_edition\": \"Standard\",\r\n\t\t\"sqldb_service_objective_name\": \"S1\",\r\n\t\t\"log_retention_days\": 30,\r\n\t\t\"email_addresses_for_alerts\": [\"ganesh.pote@gmail.com\"],\r\n\t\t\"ad_admin_login_name\": \"ganesh.pote@gmail.com\",\r\n\t\t\"admin_username\": \"sqladmin\",\r\n\t\t\"admin_password\": \"admin@123\",\r\n\t\t\"log_analytics_workspace_name\": \"AzureLaaS\",\r\n\t\t\"enable_firewall_rules\": true,\r\n\t\t\"firewall_rules\": [{\r\n\t\t\t\"name\": \"access-to-azure\",\r\n\t\t\t\"start_ip_address\": \"0.0.0.0\",\r\n\t\t\t\"end_ip_address\": \"0.0.0.0\"\r\n\t\t}],\r\n\t\t\"enable_vulnerability_assessment\": false,\r\n\t\t\"initialize_sql_script_execution\": false,\r\n\t\t\"enable_threat_detection_policy\": false,\r\n\t\t\"enable_log_monitoring\": true,\r\n\t\t\"enable_sql_server_extended_auditing_policy\": false,\r\n\t\t\"enable_database_extended_auditing_policy\": false,\r\n\t\t\"threat_detection_audit_logs_retention_days\": 30,\r\n\t\t\"disabled_alerts\": [],\r\n\t\t\"identity\": false,\r\n\t\t\"enable_failover_group\": true,\r\n\t\t\"secondary_sql_server_location\": \"westindia\",\r\n\t\t\"enable_private_endpoint\": true,\r\n\t\t\"virtual_network_name\": \"CMP-vnet\",\r\n\t\t\"private_subnet_address_prefix\": [\"10.0.6.0/29\"],\r\n\t\t\"azurerm_private_endpoint_dns_zone\": \"sqldbserver21.ril.com\",\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"ganesh.pote@gmail.com\",\r\n\t\"modified_by\": \"ganesh.pote@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_aks",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"create_aks\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 123456,\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"task_request_ref_id\": \"7890\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"ref_id\": \"b0310082-7a5f-4428-b328-50b82b263a1c\",\r\n\t\t\"cust_sub_id\": 325,\r\n\t\t\"cloud_provider\": \"azure\",\r\n\t\t\"blueprint_name\": \"create_aks\",\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"create_resource_group\": false,\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\t\"location\": \"centralindia\",\r\n\t\t\"api_server_authorized_ip_ranges\": [\"10.0.4.0/24\"],\r\n\t\t\"virtual_network_name\": \"CMP-vnet\",\r\n\t\t\"subnet_name\": \"subnetPE\",\r\n\t\t\"cluster_name\": \"postman-dev-aks-2\",\r\n\t\t\"cluster_location\": \"centralindia\",\r\n\t\t\"kubernetes_version\": \"1.19.11\",\r\n\t\t\"pod_security_policy\": false,\r\n\t\t\"node_count\": 1,\r\n\t\t\"node_vm_size\": \"Standard_D2s_v3\",\r\n\t\t\"os_disk_size_gb\": 50,\r\n\t\t\"enable_auto_scaling\": true,\r\n\t\t\"node_min_count\": 1,\r\n\t\t\"node_max_count\": 4,\r\n\t\t\"node_max_pods\": 35,\r\n\t\t\"support_availability_zones\": false,\r\n\t\t\"node_availability_zones\": [1, 2, 3],\r\n\t\t\"node_taints\": [],\r\n\t\t\"network_plugin\": \"kubenet\",\r\n\t\t\"network_policy\": \"calico\",\r\n\t\t\"pod_cidr\": \"10.0.16.0/20\",\r\n\t\t\"service_cidr\": \"10.0.32.0/20\",\r\n\t\t\"dns_service_ip\": \"10.0.32.10\",\r\n\t\t\"docker_bridge_cidr\": \"172.0.0.1/8\",\r\n\t\t\"http_application_routing\": false,\r\n\t\t\"kube_dashboard\": false,\r\n\t\t\"aci_connector_linux\": false,\r\n\t\t\"azure_policy\": false,\r\n\t\t\"node_pools\": [{\r\n\t\t\t\t\"name\": \"spot001\",\r\n\t\t\t\t\"vm_size\": \"Standard_D2s_v3\",\r\n\t\t\t\t\"os_disk_size_gb\": 50,\r\n\t\t\t\t\"enable_auto_scaling\": true,\r\n\t\t\t\t\"node_count\": 1,\r\n\t\t\t\t\"min_count\": 1,\r\n\t\t\t\t\"max_count\": 4,\r\n\t\t\t\t\"max_pods\": 35,\r\n\t\t\t\t\"node_labels\": {\r\n\t\t\t\t\t\"kubernetes.azure.com/scalesetpriority\": \"spot\"\r\n\t\t\t\t},\r\n\t\t\t\t\"node_taints\": [\r\n\t\t\t\t\t\"kubernetes.azure.com/scalesetpriority=spot:NoSchedule\"\r\n\t\t\t\t]\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"name\": \"spot002\",\r\n\t\t\t\t\"vm_size\": \"Standard_D2s_v3\",\r\n\t\t\t\t\"os_disk_size_gb\": 50,\r\n\t\t\t\t\"enable_auto_scaling\": true,\r\n\t\t\t\t\"node_count\": 1,\r\n\t\t\t\t\"min_count\": 1,\r\n\t\t\t\t\"max_count\": 4,\r\n\t\t\t\t\"max_pods\": 35,\r\n\t\t\t\t\"node_labels\": {\r\n\t\t\t\t\t\"kubernetes.azure.com/scalesetpriority\": \"spot\"\r\n\t\t\t\t},\r\n\t\t\t\t\"node_taints\": [\r\n\t\t\t\t\t\"kubernetes.azure.com/scalesetpriority=spot:NoSchedule\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset_admin_password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"reset_admin_password\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n    \"vm_name\": [\r\n       \"pswati981133-0\"\r\n    ],\r\n\t\"new_admin_password\": \"testvedp\",\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_ip_to_nic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"add_ip_to_nic\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n    \"vm_name\": [\r\n       \"pswati981133-0\"\r\n    ],\r\n\t\"ip_config_info\": {\r\n\t  \"pswati981133-0\": [\r\n\t\t{\r\n\t\t  \"ip_name\": \"testvedip\",\r\n\t\t  \"nic_name\": \"pswati981133-0-nic\",\r\n\t\t  \"subnet\": \"aditya-vnet2/aditya-subnet2\"\r\n\t\t}\r\n\t  ]\r\n\t},\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_public_ip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"add_ip_to_nic\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\"ip_config_info\": [\"testvedip\"],\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_nsg",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"delete_nsg\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\"nsg_config_info\": [\r\n\t  \"nsg_name\"\t\r\n\t],\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_firewall_rules",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"delete_firewall_rules\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\t\"firewall_config_info\": [\r\n\t  \"fw_name\"\t\r\n\t],\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"create_disk\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"cloud_provider\": \"azure\",\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n    \"location\": \"centralindia\",\r\n    \"data_disk_info\": [\r\n      {\r\n        \"redundancy\": \"LRS\",\r\n        \"sku\": \"Premium_LRS\",\r\n        \"tier\": \"P1\",\r\n        \"disk_size_GB\": \"4\"\r\n      },\r\n      {\r\n        \"redundancy\": \"LRS\",\r\n        \"sku\": \"Premium_LRS\",\r\n        \"tier\": \"P2\",\r\n        \"disk_size_GB\": \"5\"\r\n      }\r\n    ],\r\n    \"resource_group_name\": \"CMP\",\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"anunay\",\r\n  \"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attach_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"HCMP\",\r\n\t\"blueprint_name\": \"detach_disk\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"azure\",\r\n\t\"parameters\": {\r\n\t\t\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\t\t\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\t\t\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\t\t\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n        \"vm_name\": [\"ganeshdemo-openlogic-7.2-latest-0\"],\r\n\t\t\"data_disk_info\": {\r\n\t\t\t\"ganeshdemo-openlogic-7.2-latest-0\": [{\r\n\t\t\t\t\"disk_name\": \"ganeshdemo-openlogic-7.2-latest-0_data_disk_1_12719\"\r\n\t\t\t}]\r\n\t\t},\r\n\t\t\"resource_group_name\": \"CMP\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_subnet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"source\": \"CloudOrch\",\r\n\"blueprint_name\": \"create_subnet\",\r\n\"cloud_provider\": \"azure\",\r\n\"references\": {\r\n\"task_instance_id\": 123456,\r\n\"cust_sub_id\": 325,\r\n\"task_request_ref_id\": \"7890\"\r\n},\r\n\"cust_sub_id\": 325,\r\n\"parameters\": {\r\n\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\"resource_group_name\": \"CMP\",\r\n\"vnet_name\": \"demo\",\r\n\"subnet_prefixes\": [\"10.0.1.0/24\",\"10.0.2.0/24\",\"10.0.3.0/24\"],\r\n\"subnet_names\": [\"subnet1\",\"subnet2\",\"subnet3\"],\r\n\"subnet_service_endpoints\": {\"subnet1\":\"Microsoft.Sql\",\"subnet2\":\"Microsoft.Sql\",\"subnet3\":\"Microsoft.Sql\"}, \r\n\"subnet_enforce_private_link_endpoint_network_policies\": {\"subnet1\":false,\"subnet2\":false,\"subnet3\":false}, \r\n\"subnet_enforce_private_link_service_network_policies\": {\"subnet1\":false,\"subnet2\":false,\"subnet3\":false},\r\n\"test_run\": false\r\n},\r\n\"created_by\": \"amruth.patil@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_vnet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"source\": \"CloudOrch\",\r\n\"blueprint_name\": \"create_vnet\",\r\n\"cloud_provider\": \"azure\",\r\n\"references\": {\r\n\"task_instance_id\": 123456,\r\n\"cust_sub_id\": 325,\r\n\"task_request_ref_id\": \"7890\"\r\n},\r\n\"cust_sub_id\": 325,\r\n\"parameters\": {\r\n\"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n\"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n\"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n\"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n\"resource_group_name\": \"CMP\",\r\n\"vnet_location\": \"centralindia\",\r\n\"vnet_name\": \"demo\",\r\n\"address_space\": [\"10.0.0.0/16\"],\r\n\"dns_servers\": [\"10.0.0.4\",\"10.0.0.5\"],   \r\n\"subnet_prefixes\": [\"10.0.1.0/24\",\"10.0.2.0/24\",\"10.0.3.0/24\"],\r\n\"subnet_names\": [\"subnet1\",\"subnet2\",\"subnet3\"],\r\n\"subnet_service_endpoints\": {\"subnet1\":\"Microsoft.Sql\",\"subnet2\":\"Microsoft.Sql\",\"subnet3\":\"Microsoft.Sql\"}, \r\n\"subnet_enforce_private_link_endpoint_network_policies\": {\"subnet1\":false,\"subnet2\":false,\"subnet3\":false}, \r\n\"subnet_enforce_private_link_service_network_policies\": {\"subnet1\":false,\"subnet2\":false,\"subnet3\":false},\r\n\"tags\":{\r\n\"environment\": \"dev\"\r\n},\r\n\"test_run\": false\r\n},\r\n\"created_by\": \"amruth.patil@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_route_table",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"blueprint_name\": \"create_route_table\",\r\n  \"cloud_provider\": \"azure\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"azure_subscription_id\": \"e24e76dc-df5a-4add-b57b-6aa3f0eae0ee\",\r\n    \"azure_client_id\": \"49dc5041-2873-4ee7-9a05-33723de63dbf\",\r\n    \"azure_client_secret\": \"VdgxkF~M3-Kl004gGOdc1SS7a-q4kC.Lkh\",\r\n    \"azure_tenant_id\": \"98f13429-d038-4e5e-85d8-846c6a963288\",\r\n    \"resource_group_name\": \"CMP\",\r\n    \"route_table_name\": \"devops-demo-table\",\r\n    \"route_names\": [\r\n      \"devops-demo-route1\",\r\n      \"devops-demo-route2\"\r\n    ],\r\n    \"route_address_prefix\": [\r\n      \"10.1.0.0/16\",\r\n      \"10.2.0.0/16\"\r\n    ],\r\n    \"route_next_hop_type\": [\r\n      \"VnetLocal\",\r\n      \"VirtualAppliance\"\r\n    ],\r\n    \"route_next_hop_in_ip_address\": [\r\n      \"10.1.0.2\",\r\n      \"10.2.0.2\"\r\n    ],\r\n    \"disable_bgp_route_propagation\": false,\r\n    \"tags\": {\r\n      \"table_type\": \"demo\"\r\n    },\r\n    \"test_run\": false\r\n  },\r\n  \"created_by\": \"omkar.jadhav@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GCP",
+			"item": [
+				{
+					"name": "create_vm_linux_old",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"gcp-os-provisioning\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"subnet_name\": \"default\",\r\n\t\t\"vm_size\": \"e2-micro\",\r\n\t\t\"min_cpu_platform\": \"Automatic\",\r\n\t\t\"vm_hostname\": \"ganeshtest-replica1\",\r\n\t\t\"nb_instances\": 1,\r\n\t\t\"image_name\": \"rhel-7\",\r\n\t\t\"image_project\": \"rhel-cloud\",\r\n\t\t\"disk_auto_delete\": true,\r\n\t\t\"os_disk_type\": \"pd-ssd\",\r\n\t\t\"os_disk_size_gb\": 80,\r\n\t\t\"admin_username\": \"azureuser\",\r\n\t\t\"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n\t\t\"inbound_port_ranges\": [\"80\", \"443\"],\r\n\t\t\"data_disk_info\": [{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": [\"dev\", \"it\", \"testdemo\", \"ganesh\"],\r\n        \"labels\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_vm_linux",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"gcp-os-provisioning\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"subnet_name\": \"default\",\r\n\t\t\"vm_size\": \"e2-micro\",\r\n\t\t\"vm_hostname\": \"ganeshdhruvreplica10\",\r\n\t\t\"nb_instances\": 1,\r\n\t\t\"image_name\": \"rhel-7\",\r\n\t\t\"image_project\": \"rhel-cloud\",\r\n\t\t\"disk_auto_delete\": true,\r\n\t\t\"os_disk_type\": \"pd-ssd\",\r\n\t\t\"os_disk_size_gb\": 80,\r\n\t\t\"inbound_port_ranges\": [\"80\", \"443\"],\r\n\t\t\"data_disk_info\": [{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": [\"dev\", \"it\", \"testdemo\", \"ganesh\"],\r\n        \"labels\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_vm_marketplace",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"gcp-os-provisioning\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"subnet_name\": \"default\",\r\n\t\t\"vm_size\": \"e2-micro\",\r\n\t\t\"vm_hostname\": \"ganeshtest-apache2-v20200615\",\r\n\t\t\"nb_instances\": 1,\r\n\t\t\"image_name\": \"apache2-v20200615\",\r\n\t\t\"image_project\": \"click-to-deploy-images\",\r\n\t\t\"disk_auto_delete\": true,\r\n\t\t\"os_disk_type\": \"pd-ssd\",\r\n\t\t\"os_disk_size_gb\": 80,\r\n\t\t\"inbound_port_ranges\": [\"80\", \"443\"],\r\n\t\t\"data_disk_info\": [{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": [\"dev\", \"it\", \"testdemo\", \"ganesh\"],\r\n        \"labels\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_vm_windows",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n\t\"blueprint_name\": \"gcp-os-provisioning\",\r\n\t\"references\": {\r\n\t\t\"task_instance_id\": 400990,\r\n\t\t\"cust_sub_id\": 601,\r\n\t\t\"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n\t},\r\n\t\"cust_sub_id\": 325,\r\n\t\"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"subnet_name\": \"default\",\r\n\t\t\"vm_size\": \"e2-micro\",\r\n\t\t\"vm_hostname\": \"ganesh-windows-2012-r2\",\r\n\t\t\"nb_instances\": 1,\r\n\t\t\"image_name\": \"windows-server-2012-r2-dc-core-v20210914\",\r\n\t\t\"image_project\": \"windows-cloud\",\r\n\t\t\"disk_auto_delete\": true,\r\n\t\t\"os_disk_type\": \"pd-ssd\",\r\n\t\t\"os_disk_size_gb\": 80,\r\n\t\t\"inbound_port_ranges\": [\"80\", \"443\"],\r\n\t\t\"data_disk_info\": [{\r\n\t\t\t\t\"disk_size_gb\": 10,\r\n\t\t\t\t\"disk_type\": \"pd-standard\"\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"tags\": [\"dev\", \"it\", \"testdemo\", \"ganesh\"],\r\n        \"labels\": {\r\n\t\t\t\"environment\": \"dev\",\r\n\t\t\t\"costcenter\": \"it\",\r\n\t\t\t\"deployement_id\": \"111\"\r\n\t\t},\r\n        \"is_windows_image\":true,\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"start_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"vm_name\":[\"ganeshdemo-1\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stop_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"stop_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"vm_name\":[\"ganeshdemo-1\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"reset_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"vm_name\":[\"ganeshdemo-1\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_vm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"delete_vm\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"vm_name\":[\"ganeshtest-rhel-7-1\"],\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_vm_size",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"change_vm_size\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },  \r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n\t\"parameters\": {\r\n\t\t\"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n\t\t\"location\": \"europe-west1\",\r\n\t\t\"zone\": \"europe-west1-b\",\r\n\t\t\"vm_name\":[\"ganeshdemo-1\"],\r\n        \"vm_size\":\"e2-medium\",\r\n\t\t\"test_run\": false\r\n\t},\r\n\t\"created_by\": \"anunay\",\r\n\t\"modified_by\": \"anunay\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"create_disk\",\r\n  \"blueprint_name\": \"create_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"create_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"vm_size\": \"e2-micro\",\r\n    \"min_cpu_platform\": \"Automatic\",\r\n    \"vm_hostname\": \"ganeshdemo\",\r\n    \"nb_instances\": 1,\r\n    \"vm_os_family\": \"debian-9\",\r\n    \"vm_os_publisher\": \"debian-cloud\",\r\n    \"disk_auto_delete\": true,\r\n    \"os_disk_type\": \"pd-ssd\",\r\n    \"os_disk_size_gb\": 40,\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n    \"data_disk_info\": [\r\n      {\r\n        \"disk_name\": \"vedcreatedisk1\",\r\n        \"disk_size_gb\": 10,\r\n        \"disk_type\": \"pd-standard\"\r\n      },\r\n      {\r\n        \"disk_name\": \"vedcreatedisk2\",\r\n        \"disk_size_gb\": 10,\r\n        \"disk_type\": \"pd-standard\"\r\n      }\r\n    ],\r\n    \"marketplace_blueprint\": true,\r\n    \"is_windows_image\": true,\r\n    \"tags\": [\r\n      \"dev\",\r\n      \"it\",\r\n      \"testdemo\",\r\n      \"ganesh\"\r\n    ],\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"delete_disk\",\r\n  \"blueprint_name\": \"create_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"create_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"vm_size\": \"e2-micro\",\r\n    \"min_cpu_platform\": \"Automatic\",\r\n    \"vm_hostname\": \"ganeshdemo\",\r\n    \"nb_instances\": 1,\r\n    \"vm_os_family\": \"debian-9\",\r\n    \"vm_os_publisher\": \"debian-cloud\",\r\n    \"disk_auto_delete\": true,\r\n    \"os_disk_type\": \"pd-ssd\",\r\n    \"os_disk_size_gb\": 40,\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n    \"data_disk_info\": [\r\n       \"vedcreatedisk1\",\r\n        \"vedcreatedisk2\"\r\n    ],\r\n    \"marketplace_blueprint\": true,\r\n    \"is_windows_image\": true,\r\n    \"tags\": [\r\n      \"dev\",\r\n      \"it\",\r\n      \"testdemo\",\r\n      \"ganesh\"\r\n    ],\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_public_ip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"delete_public_ip\",\r\n  \"blueprint_name\": \"delete_public_ip\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"delete_public_ip\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"vm_size\": \"e2-micro\",\r\n    \"min_cpu_platform\": \"Automatic\",\r\n    \"vm_hostname\": \"ganeshdemo\",\r\n    \"nb_instances\": 1,\r\n    \"vm_os_family\": \"debian-9\",\r\n    \"vm_os_publisher\": \"debian-cloud\",\r\n    \"disk_auto_delete\": true,\r\n    \"os_disk_type\": \"pd-ssd\",\r\n    \"os_disk_size_gb\": 40,\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n    \"ip_config_info\": [\r\n        \"public_ip1\",\r\n        \"public_ip2\"\r\n    ],\r\n    \"marketplace_blueprint\": true,\r\n    \"is_windows_image\": true,\r\n    \"tags\": [\r\n      \"dev\",\r\n      \"it\",\r\n      \"testdemo\",\r\n      \"ganesh\"\r\n    ],\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_firewall_rules",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"delete_public_ip\",\r\n  \"blueprint_name\": \"delete_public_ip\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"delete_public_ip\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"vm_size\": \"e2-micro\",\r\n    \"min_cpu_platform\": \"Automatic\",\r\n    \"vm_hostname\": \"ganeshdemo\",\r\n    \"nb_instances\": 1,\r\n    \"vm_os_family\": \"debian-9\",\r\n    \"vm_os_publisher\": \"debian-cloud\",\r\n    \"disk_auto_delete\": true,\r\n    \"os_disk_type\": \"pd-ssd\",\r\n    \"os_disk_size_gb\": 40,\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n    \"firewall_config_info\": [\r\n        \"fw_name1\",\r\n        \"fw_name2\"\r\n    ],\r\n    \"marketplace_blueprint\": true,\r\n    \"is_windows_image\": true,\r\n    \"tags\": [\r\n      \"dev\",\r\n      \"it\",\r\n      \"testdemo\",\r\n      \"ganesh\"\r\n    ],\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"add_disk\",\r\n  \"blueprint_name\": \"add_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"add_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n\t\"vm_name\": [\"ganeshdhruvreplica1-1\"],\r\n    \"data_disk_info\": {\r\n        \"ganeshdhruvreplica1-1\": [\r\n          {\r\n            \"disk_name\": \"ganeshdhruvreplica11datadisk242986\",\r\n            \"disk_size_GB\": 20\r\n          }\r\n        ]\r\n    },\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change_disk_size",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"add_disk\",\r\n  \"blueprint_name\": \"add_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"add_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n\t\"vm_name\": [\"ganeshdhruvreplica1-1\"],\r\n    \"data_disk_info\": {\r\n        \"ganeshdhruvreplica1-1\": [\r\n          {\r\n            \"disk_name\": \"ganeshdhruvreplica11datadisk242986\",\r\n            \"disk_size_GB\": 20\r\n          }\r\n        ]\r\n    },\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "attach_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"attach_disk\",\r\n  \"blueprint_name\": \"attach_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"attach_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n\t\"vm_name\": [\"ganeshdhruvreplica1-1\"],\r\n    \"data_disk_info\": {\r\n        \"ganeshdhruvreplica1-1\": [\r\n           \"ganeshdhruvreplica11datadisk242986\"\r\n        ]\r\n    },\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detach_disk",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"source\": \"CloudOrch\",\r\n  \"task_name\": \"attach_disk\",\r\n  \"blueprint_name\": \"attach_disk\",\r\n  \"cloud_provider\": \"gcp\",\r\n  \"references\": {\r\n    \"task_instance_id\": 123456,\r\n    \"cust_sub_id\": 325,\r\n    \"task_request_ref_id\": \"7890\"\r\n  },\r\n  \"cust_sub_id\": 325,\r\n  \"parameters\": {\r\n    \"blueprint_name\": \"attach_disk\",\r\n    \"credentials\": {},\r\n\t\"gcp_project\": \"sandbox-313005\",\r\n    \"location\": \"europe-west1\",\r\n    \"zone\": \"europe-west1-b\",\r\n    \"subnet_name\": \"default\",\r\n    \"admin_username\": \"azureuser\",\r\n    \"ssh_publickey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMDRRJkb+XO7g+p9dqUKnckFFBa3uUtHxVOKjnW61bLrHRkrs3znkob0cwqBzMZrXx3/nFOj6fNbs29c5I3xBJ3B31EqOEfdF7h3Qe0yxWiHX7zXVAUQMR/uuvLFNaKWYuqpB98HMSEMQuAqVi99qLpnmqRUyXaPSz7k0wDBHo5USg/FXj/Z+bJkGde/6hNZ5PbNiGEtCkN9+HUhGlHcIfU/ucoECuyL4u9FhpPc+5m9jV5jci3oqYkuPhFOt0avtdQdZle+5Hvw6R9m9YBc28xwieK+X45TcyovKDbKgTePCDoE2ZQpieUmSOmL1b6lPSA7u59Bzci5LkzNScotyv ganesh\",\r\n    \"inbound_port_ranges\": [\r\n      \"80\",\r\n      \"443\"\r\n    ],\r\n\t\"vm_name\": [\"ganeshdhruvreplica1-1\"],\r\n    \"data_disk_info\": {\r\n        \"ganeshdhruvreplica1-1\": [\r\n           \"ganeshdhruvreplica11datadisk242986\"\r\n        ]\r\n    },\r\n    \"cloud_provider\": \"gcp\",\r\n    \"test_run\": false\r\n  },\r\n  \"modified_by\": \"ved\",\r\n  \"created_by\": \"ved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "detach_disk",
+							"host": [
+								"detach_disk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_ip_to_nic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },\r\n    \"task_name\": \"add_ip_to_nic\",\r\n    \"source\": \"CloudOrch\",\r\n\t\"blueprint_name\" : \"add_ip_to_nic\",\r\n\t\"cust_sub_id\": 601,\r\n    \"parameters\": {\r\n        \"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n        \"location\": \"europe-west1\",\r\n        \"zone\": \"europe-west1-b\",\r\n        \"subnet_name\": \"default\",\r\n        \"vm_name\": [\r\n            \"ganeshved112-1\"\r\n        ],\r\n        \"ip_config_info\": {\r\n\t\t\t\"ganeshved112-1\": [{\r\n\t\t\t  \"address\": \"34.78.4.111\",\r\n\t\t\t  \"nic_name\": \"nic0\",\r\n\t\t\t  \"subnet\": \"aditya-vnet2/aditya-subnet2\"\r\n\t\t\t}]\r\n        },\r\n        \"test_run\": false,\r\n        \"blueprint_name\" : \"add_ip_to_nic\",\r\n        \"cloud_provider\": \"gcp\",\r\n        \"cust_sub_id\": 325\r\n    },\r\n    \"created_date\": \"2021-09-28T18:32:25.985604\",\r\n    \"modified_date\": \"2021-09-28T18:32:25.985619\",\r\n    \"created_by\": \"anunay\",\r\n    \"cloud_provider\": \"gcp\",\r\n    \"rollback\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove_ip_from_nic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },\r\n    \"task_name\": \"add_ip_to_nic\",\r\n    \"source\": \"CloudOrch\",\r\n\t\"blueprint_name\" : \"add_ip_to_nic\",\r\n\t\"cust_sub_id\": 601,\r\n    \"parameters\": {\r\n        \"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n        \"location\": \"europe-west1\",\r\n        \"zone\": \"europe-west1-b\",\r\n        \"subnet_name\": \"default\",\r\n        \"vm_name\": [\r\n            \"ganeshved112-1\"\r\n        ],\r\n        \"ip_config_info\": {\r\n\t\t\t\"ganeshved112-1\": [{\r\n\t\t\t  \"address\": \"34.78.4.111\",\r\n\t\t\t  \"nic_name\": \"nic0\",\r\n\t\t\t  \"subnet\": \"aditya-vnet2/aditya-subnet2\"\r\n\t\t\t}]\r\n        },\r\n        \"test_run\": false,\r\n        \"blueprint_name\" : \"add_ip_to_nic\",\r\n        \"cloud_provider\": \"gcp\",\r\n        \"cust_sub_id\": 325\r\n    },\r\n    \"created_date\": \"2021-09-28T18:32:25.985604\",\r\n    \"modified_date\": \"2021-09-28T18:32:25.985619\",\r\n    \"created_by\": \"anunay\",\r\n    \"cloud_provider\": \"gcp\",\r\n    \"rollback\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_publicip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"source\": \"CloudOrch\",\r\n \"blueprint_name\": \"create_publicip\",\r\n \"references\": {\r\n  \"task_instance_id\": 400990,\r\n  \"cust_sub_id\": 601,\r\n  \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n },\r\n \"cust_sub_id\": 325,\r\n \"cloud_provider\": \"gcp\",\r\n \"parameters\": {\r\n  \"credentials\": {},\r\n  \"gcp_project\": \"sandbox-313005\",\r\n  \"location\": \"asia-south1\",\r\n  \"zone\": \"asia-south1-b\",\r\n  \"display_name\": \"cloudorchdemo\",\r\n  \"network_tier\": \"PREMIUM\",\r\n  \"nb_public_ip\": 3,\r\n  \"test_run\": false\r\n },\r\n \"created_by\": \"amruth\",\r\n \"modified_by\": \"amruth\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_firewall_rule",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"source\": \"CloudOrch\",\r\n    \"blueprint_name\": \"create_firewall_rule\",\r\n    \"references\": {\r\n        \"task_instance_id\": 400990,\r\n        \"cust_sub_id\": 601,\r\n        \"task_request_ref_id\": \"b9512458-5581-4252-ab60-39a7c7f29f16\"\r\n    },\r\n    \"cust_sub_id\": 325,\r\n    \"cloud_provider\": \"gcp\",\r\n    \"parameters\": {\r\n        \"credentials\": {},\r\n\t\t\"gcp_project\": \"sandbox-313005\",\r\n        \"location\": \"asia-south1\",\r\n        \"zone\": \"asia-south1-b\",\r\n        \"action\": \"allow\",\r\n        \"direction\": \"INGRESS\",\r\n        \"gcp_compute_firewall\": \"demo\",\r\n        \"protocol\": \"tcp\",\r\n        \"ports\": [\"1234\"],\r\n        \"priority\": 123,\r\n        \"gcp_compute_network\": \"abcd-123\",\r\n        \"source_ranges_details\": [\"0.0.0.0/24\"],\r\n        \"destination_ranges_details\": [\"0.0.0.0/24\"],\r\n        \"test_run\": false\r\n    },\r\n    \"created_by\": \"amruth\",\r\n    \"modified_by\": \"amruth\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/latest/orchestrator/task",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"latest",
+								"orchestrator",
+								"task"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "response",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/latest/orchestrator/response?task_id=e93af38321844708ab8f8b3c3b8ff487",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"latest",
+						"orchestrator",
+						"response"
+					],
+					"query": [
+						{
+							"key": "task_id",
+							"value": "e93af38321844708ab8f8b3c3b8ff487"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"ganesh.pote@gmail.com\",\r\n    \"password\": \"India@2021\"\r\n}"
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/latest/dashUI/authenticate",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"latest",
+						"dashUI",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get HCMP Transactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"filters\": {\"task_request_ref_id\":\"7890\"}\r\n}"
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/latest/orchestrator/transactions?page=1&per_page=5",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"latest",
+						"orchestrator",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

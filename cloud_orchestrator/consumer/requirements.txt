@@ -1,0 +1,10 @@
+dependency-injector==4.32.2
+python-jenkins==1.7.0
+xmltodict==0.12.0
+pylint==1.8.2
+pylint-json2html
+SQLAlchemy-Paginator
+psycopg2-binary
+cryptography
+jsonschema
+aio_pika

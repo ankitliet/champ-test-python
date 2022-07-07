@@ -1,0 +1,34 @@
+Engine:
+    cache_maxsize: 10
+    handlers:
+        Mark10: 'core.handler.mark10.mark10.Mark10'
+        Mark20: 'core.handler.mark10.mark20.Mark20'
+    rabbit_listner:
+        server: '10.166.16.98'
+        port: 31387
+        virtual_host: '/'
+        user: 'oLdG8Byye1T70cxX2_c99iFIynPzSmQM'
+        password: '6udmXsKGDpeYuUNShTC7UXERYQdmNfhM'
+        queue: 'orchestrator-prod'
+        exchange: 'orchestrator'
+    retrycount: 3
+            
+ThreadExecutorResource:
+    max_workers: 10
+    thread_name_prefix: ''
+    initializer: 
+    initargs: []
+    grpc_port: 9090
+    
+DatabaseResource:
+    url: 'postgresql://si_hcmp_teraprod:si_hcmp_teraprod@5432@/HCMP_TERAFORM_PROD?host=10.166.16.160&port=5432'
+    schema: 'hcmp'
+    
+rabbit_listner:
+    server: '10.166.16.98'
+    port: 31387
+    virtual_host: '/'
+    user: 'oLdG8Byye1T70cxX2_c99iFIynPzSmQM'
+    password: '6udmXsKGDpeYuUNShTC7UXERYQdmNfhM'
+    queue: 'orchestrator-prod'
+    exchange: 'orchestrator'

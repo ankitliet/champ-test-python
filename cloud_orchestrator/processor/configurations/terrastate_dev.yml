@@ -1,0 +1,30 @@
+DatabaseResource:
+    url: 'postgresql://hcmp:admin@123@3.109.238.136/hcmp'
+    schema: 'hcmp'
+    
+Engine:
+    sleepinterval_before_exceptional_destroy: 60
+    terrafrom_init_backend_config:
+        conn_str: 'postgres://hcmp:admin@123@3.109.238.136/hcmp?sslmode=disable'
+
+    infracost:
+        api_key: '0gcq6E8A6QRTbP3em9Rof6k4ahuMHr4W'
+        pricing_api_endpoint: 'http://13.126.60.149:4000'
+
+    Terraform:
+        decrypt_key:  'hN5w8cHOcE5iazBkZtLSCcUkt-30ftOX6iDdjyr3H9c='
+        base_clone_path: '/usr/src/app/terrafiles'
+        #base_clone_path: '/home/jovyan/terrafiles'
+    ORCH:
+        api_url: 'https://13.126.60.149:8082/latest/orchestrator/response?task_id='
+        #api_url: 'http://webserver-api-orchestrator.htcinc-hcmp-cloudorch:8082/latest/orchestrator/response?task_id='
+        admin_url: 'https://13.126.60.149:4200/orchestration/transactions/'
+    ARM:
+        base_clone_path: '/usr/src/app/armtemplates'
+        #base_clone_path: '/home/jovyan/armtemplates'
+        #api_url: 'http://webserver-api-orchestrator.htcinc-hcmp-cloudorch:8082/latest/orchestrator/response?task_id='
+        admin_url: 'https://13.126.60.149:4200/orchestration/transactions/'
+
+ENV_VARS:
+    http_proxy: ''
+    https_proxy: ''

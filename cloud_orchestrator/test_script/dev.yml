@@ -1,0 +1,11 @@
+DatabaseResource:
+  uri: 'postgresql://postgres:postgres@10.166.160.7/hcmp'
+  schema: 'hcmp'
+
+rmq:
+  server: '10.160.136.201'
+  port: 5672
+  virtual_host: '/'
+  user: 'guest'
+  password: 'guest'
+  queue: 'hcmp_orchestrator'

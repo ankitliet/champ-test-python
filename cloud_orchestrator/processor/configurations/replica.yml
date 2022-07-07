@@ -1,0 +1,32 @@
+Engine:
+    cache_maxsize: 10
+    handlers:
+        Mark10: 'core.handler.mark10.mark10.Mark10'
+        Mark20: 'core.handler.mark10.mark20.Mark20'
+    rabbit_listner:
+        server: '10.166.132.10'
+        port: 30768
+        virtual_host: '/'
+        user: 'E6ADKhl4Hac-jAa63EqzWKO3725DCDP6'
+        password: 'eD3wrqmmd2cRXrMJTHwdUzGORpw-CZXS'
+        exchange: 'orchestrator'
+    retrycount: 3
+            
+ThreadExecutorResource:
+    max_workers: 10
+    thread_name_prefix: ''
+    initializer: 
+    initargs: []
+    grpc_port: 9090
+    
+DatabaseResource:
+    url: 'postgresql://si_hcmp_terareplica:si_hcmp_terareplica@5432@/HCMP_TERAFORM_REPLICA?host=10.166.132.209&port=5432'
+    schema: 'hcmp'
+    
+rabbit_listner:
+    server: '10.166.132.10'
+    port: 30768
+    virtual_host: '/'
+    user: 'E6ADKhl4Hac-jAa63EqzWKO3725DCDP6'
+    password: 'eD3wrqmmd2cRXrMJTHwdUzGORpw-CZXS'
+    exchange: 'orchestrator'

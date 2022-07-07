@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-api-orchestrator
+  namespace: htcinc-hcmp-cloudorch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver-api-orchestrator
+  template:
+    metadata:
+      labels:
+        app: webserver-api-orchestrator
+    spec:
+      containers:
+      - name: webserver-api-orchestrator
+        image: nexuscoe.xxx.com:5115/ngo/webserver-api-orchestrator:BuildId
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8082
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+        - name: logs
+          mountPath: /mnt/logs
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Kolkata
+        - name: logs
+          hostPath:
+            path: /mnt/logs
+      imagePullSecrets:
+        - name: nexus-registry-cred

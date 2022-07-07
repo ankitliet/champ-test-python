@@ -1,0 +1,81 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+- develop
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: CmdLine@2
+  displayName: Install Requirements.txt
+  inputs:
+    script: 'pip install -r processor/requirements.txt'
+
+- task: CmdLine@2
+  displayName: Run PyLint
+  inputs:
+    script: 'pylint processor --output-format=json:pylint.json'
+
+- task: CmdLine@2
+  displayName: Generate PyLint Report
+  inputs:
+    script: 'pylint-json2html -o pylint.html pylint.json'
+
+- task: publishhtmlreport@1
+  displayName: Publish PyLint HTML Report
+  inputs:
+    htmlType: 'genericHTML'
+    htmlPath: '$(Build.SourcesDirectory)/pylint.html'
+
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'cloud_orchestrator-processor'
+    cliSources: '.'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+
+- task: SonarQubeAnalyze@5
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+
+- task: DockerCompose@0
+  displayName: Docker Build
+  inputs:
+    action: Build services
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'docker-hub'
+    dockerComposeFile: '**/processor-docker-compose.yml'
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    dockerComposeFileArgs: |
+        TAG=${{ variables['Build.BuildId'] }}
+        REGISTRY=ganeshpote1988
+
+- task: DockerCompose@0
+  displayName: Docker Push
+  inputs:
+    action: Push services
+    containerregistrytype: 'Container Registry'
+    dockerRegistryEndpoint: 'docker-hub'
+    dockerComposeFile: '**/processor-docker-compose.yml'
+    projectName: $(Build.Repository.Name)
+    qualifyImageNames: true
+    dockerComposeFileArgs: |
+        TAG=${{ variables['Build.BuildId'] }}
+        REGISTRY=ganeshpote1988
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')

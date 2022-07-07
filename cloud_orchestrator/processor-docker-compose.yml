@@ -1,0 +1,7 @@
+version: "3"
+services:
+  champ-processor:
+    image: ${REGISTRY:-ganeshpote1988}/champ:champ-processor-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: processor/processor.test.Dockerfile

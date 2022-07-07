@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service_name
+  namespace: htcinc-hcmp-cloudorch
+spec:
+  replicas: replica_count
+  selector:
+    matchLabels:
+      app: service_name
+  template:
+    metadata:
+      labels:
+        app: service_name
+    spec:
+      containers:
+      - name: service_name
+        image: nexuscoe.xxx.com:5115/ngo/processor-orchestrator:BuildId
+        env:
+        - name: http_proxy
+          value: "http://azureproxy.xxx.com:8080"
+        - name: https_proxy
+          value: "http://azureproxy.xxx.com:8080"
+        - name: queue
+          value: "queue_name"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+        - name: logs
+          mountPath: /mnt/logs
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Kolkata
+        - name: logs
+          hostPath:
+            path: /mnt/logs
+      imagePullSecrets:
+        - name: nexus-registry-cred
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service_name
+  namespace: htcinc-hcmp-cloudorch
+spec:
+  selector:
+    app: service_name
+  ports:
+    - protocol: TCP
+      port: 9090
+      targetPort: 9090

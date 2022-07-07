@@ -1,0 +1,3 @@
+db:
+  url: 'postgresql://admin:admin@123@3.109.238.136/hcmp'
+  schema: 'hcmp'

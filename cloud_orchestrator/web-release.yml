@@ -1,0 +1,8 @@
+version: "3.4"
+services:
+  champ-web-server:
+    image: ${REGISTRY:-ganeshpote1988}/champ:champ-web-server-${TAG:-latest}
+    container_name: champ-web-server
+    restart: unless-stopped
+    ports:
+      - "8082:8082"

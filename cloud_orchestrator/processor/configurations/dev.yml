@@ -1,0 +1,32 @@
+Engine:
+    cache_maxsize: 10
+    handlers:
+        Mark10: 'core.handler.mark10.mark10.Mark10'
+        Mark20: 'core.handler.mark10.mark20.Mark20'
+    rabbit_listner:
+        server: '3.109.238.136'
+        port: 5672
+        virtual_host: '/'
+        user: 'admin'
+        password: 'Admin@123'
+        exchange: 'orchestrator'
+    retrycount: 3
+
+ThreadExecutorResource:
+    max_workers: 10
+    thread_name_prefix: ''
+    initializer: 
+    initargs: []
+    grpc_port: 9090
+    
+DatabaseResource:
+    url: 'postgresql://hcmp:admin@123@3.109.238.136/hcmp'
+    schema: 'hcmp'
+    
+rabbit_listner:
+    server: '3.109.238.136'
+    port: 5672
+    virtual_host: '/'
+    user: 'admin'
+    password: 'Admin@123'
+    exchange: 'orchestrator'

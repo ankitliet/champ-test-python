@@ -37,3 +37,4 @@ pyvmomi==7.0.3
 openstacksdk==0.59.0
 ansible-base
 isi_sdk_8_2_1==0.2.12
+
